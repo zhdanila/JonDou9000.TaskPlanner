@@ -1,6 +1,7 @@
-﻿using JonDou9000.TaskPlanner.Domain.Models;
+﻿
 using System;
 using JonDou9000.TaskPlanner.DataAccess.JonDou9000.TaskPlanner.DataAccess;
+using JonDou9000.TaskPlanner.Domain.JonDou9000.TaskPlanner.Domain.Models;
 
 internal static class Program
 {
@@ -81,22 +82,23 @@ internal static class Program
 
     private static void BuildPlan(FileWorkItemsRepository repository)
     {
-        var planner = new SimpleTaskPlanner();
-        var workItems = repository.GetAll();
+        var planner = new SimpleTaskPlanner(repository); // Передаємо репозиторій у конструктор
 
-        if (workItems.Length == 0)
+        var sortedItems = planner.CreatePlan();
+
+        if (sortedItems.Length == 0)
         {
             Console.WriteLine("No work items to plan.");
             return;
         }
 
-        var sortedItems = planner.CreatePlan(workItems);
         Console.WriteLine("\nSorted Work Items:");
         foreach (var item in sortedItems)
         {
             Console.WriteLine(item);
         }
     }
+
 
     private static void MarkWorkItemAsCompleted(FileWorkItemsRepository repository)
     {
