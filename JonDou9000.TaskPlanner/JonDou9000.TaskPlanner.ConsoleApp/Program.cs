@@ -1,11 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using JonDou9000.TaskPlanner.Domain.Models;
+using JonDou9000.TaskPlanner.DataAccess; // Підключаємо репозиторій
+using System;
 
 internal static class Program
 {
     public static void Main(string[] args)
     {
-        var workItems = new List<WorkItem>();
+        // Створюємо екземпляр репозиторію, який буде працювати з файлом work-items.json
+        var repository = new FileWorkItemsRepository();
 
         while (true)
         {
@@ -28,7 +30,8 @@ internal static class Program
             Console.Write("Enter complexity (None, Minutes, Hours, Days, Weeks): ");
             Complexity complexity = Enum.Parse<Complexity>(Console.ReadLine(), true);
 
-            workItems.Add(new WorkItem
+            // Створюємо новий WorkItem і додаємо його в репозиторій
+            var workItem = new WorkItem
             {
                 Title = title,
                 Description = description,
@@ -37,14 +40,19 @@ internal static class Program
                 Priority = priority,
                 Complexity = complexity,
                 IsCompleted = false
-            });
+            };
+
+            repository.Add(workItem); // Додаємо завдання в репозиторій
         }
 
-        var planner = new SimpleTaskPlanner();
-        var sortedItems = planner.CreatePlan(workItems.ToArray());
+        // Зберігаємо всі введені завдання у файл
+        repository.SaveChanges();
 
-        Console.WriteLine("\nSorted Work Items:");
-        foreach (var item in sortedItems)
+        // Отримуємо всі збережені завдання з репозиторію
+        var allItems = repository.GetAll();
+
+        Console.WriteLine("\nAll Work Items:");
+        foreach (var item in allItems)
         {
             Console.WriteLine(item);
         }
