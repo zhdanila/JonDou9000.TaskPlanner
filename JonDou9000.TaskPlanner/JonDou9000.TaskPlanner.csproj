@@ -8,7 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Moq" Version="4.20.72" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="xunit" Version="2.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JonDou9000.TaskPlanner.Domain.Logic.Tests\JonDou9000.TaskPlanner.Domain.Logic.Tests.csproj" />
   </ItemGroup>
 
 </Project>
