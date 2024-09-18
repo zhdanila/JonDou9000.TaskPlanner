@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using JonDou9000.TaskPlanner.Domain.Models;
+using System.Collections.Generic;
 using System.Linq;
 
 public class SimpleTaskPlanner
