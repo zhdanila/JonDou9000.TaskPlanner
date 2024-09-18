@@ -1,4 +1,4 @@
-﻿using JonDou9000.TaskPlanner.Domain.Models;
+﻿using JonDou9000.TaskPlanner.Domain.JonDou9000.TaskPlanner.Domain.Models;
 using System.Collections.Generic;
 using System.Linq;
 

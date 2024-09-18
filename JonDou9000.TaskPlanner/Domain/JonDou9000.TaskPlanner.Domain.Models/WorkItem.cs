@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace JonDou9000.TaskPlanner.Domain.Models
+namespace JonDou9000.TaskPlanner.Domain.JonDou9000.TaskPlanner.Domain.Models
 {
     public class WorkItem
     {
@@ -21,8 +21,7 @@ namespace JonDou9000.TaskPlanner.Domain.Models
         // Метод для копіювання об'єкта
         public WorkItem Clone()
         {
-            return (WorkItem)this.MemberwiseClone();
+            return (WorkItem)MemberwiseClone();
         }
     }
 }
-    

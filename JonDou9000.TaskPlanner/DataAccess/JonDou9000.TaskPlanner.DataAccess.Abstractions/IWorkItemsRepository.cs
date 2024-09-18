@@ -1,7 +1,7 @@
-﻿using JonDou9000.TaskPlanner.Domain.Models;
+﻿using JonDou9000.TaskPlanner.Domain.JonDou9000.TaskPlanner.Domain.Models;
 using System;
 
-namespace JonDou9000.TaskPlanner.DataAccess.Abstractions
+namespace JonDou9000.TaskPlanner.DataAccess.JonDou9000.TaskPlanner.DataAccess.Abstractions
 {
     public interface IWorkItemsRepository
     {

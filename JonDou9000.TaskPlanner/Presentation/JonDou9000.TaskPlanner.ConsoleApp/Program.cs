@@ -1,6 +1,6 @@
 ﻿using JonDou9000.TaskPlanner.Domain.Models;
-using JonDou9000.TaskPlanner.DataAccess;
 using System;
+using JonDou9000.TaskPlanner.DataAccess.JonDou9000.TaskPlanner.DataAccess;
 
 internal static class Program
 {
