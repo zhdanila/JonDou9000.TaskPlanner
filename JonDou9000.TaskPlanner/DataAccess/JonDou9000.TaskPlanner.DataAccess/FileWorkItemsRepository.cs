@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using JonDou9000.TaskPlanner.Domain.Models;
-using JonDou9000.TaskPlanner.DataAccess.Abstractions;
 using Newtonsoft.Json;
 using System.Xml;
+using JonDou9000.TaskPlanner.DataAccess.JonDou9000.TaskPlanner.DataAccess.Abstractions;
+using JonDou9000.TaskPlanner.Domain.JonDou9000.TaskPlanner.Domain.Models;
 
-namespace JonDou9000.TaskPlanner.DataAccess
+namespace JonDou9000.TaskPlanner.DataAccess.JonDou9000.TaskPlanner.DataAccess
 {
     public class FileWorkItemsRepository : IWorkItemsRepository
     {
@@ -81,7 +81,7 @@ namespace JonDou9000.TaskPlanner.DataAccess
         public void SaveChanges()
         {
             var items = new List<WorkItem>(_workItems.Values).ToArray();
-            var json = Newtonsoft.Json.JsonConvert.SerializeObject(items, Newtonsoft.Json.Formatting.Indented);
+            var json = JsonConvert.SerializeObject(items, Newtonsoft.Json.Formatting.Indented);
             File.WriteAllText(FileName, json);  // Записуємо JSON у файл
         }
     }
